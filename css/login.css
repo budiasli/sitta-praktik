@@ -1,0 +1,57 @@
+/* ... (CSS kustom tidak berubah) ... */
+        body {
+            background-color: #f8f9fa; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-custom-yellow {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #212529;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .btn-custom-yellow:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+            color: #212529;
+        }
+
+        .input-group-custom {
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            padding: 5px 0;
+            margin-bottom: 20px;
+        }
+        
+        .input-group-custom .form-control {
+            border: none;
+            box-shadow: none;
+            padding-left: 5px;
+            padding-right: 0;
+        }
+        
+        .input-group-custom .input-group-text {
+            background-color: white;
+            border: none;
+            color: #6c757d;
+            padding-right: 10px;
+        }
+
+        .logo-ut {
+            max-width: 120px;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
