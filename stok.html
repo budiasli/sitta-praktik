@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok</title>
+    <!-- LETAK FILE CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- BATAS FILE CSS -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-text" href="dashboard.html"><img src="assets/logo-ut.png" style="width: 48px;">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Informasi Bahan Ajar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tracking.html">Tracking Pengiriman</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLaporan" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Laporan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLaporan">
+                            <li><a class="dropdown-item" href="#">Monitoring Progres DO Bahan Ajar</a></li>
+                            <li><a class="dropdown-item" href="#">Rekap Bahan Ajar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Histori Transaksi Bahan Ajar</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-custom-blue" id="logoutButton">Keluar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- SELESAI NAVBAR -->
+    
+    <!-- TABEL INFORMASI STOK BAHAN AJAR -->
+    <div class="container">
+    <h2>Informasi Stok Bahan Ajar</h2>
+    <button id="btnTambahBuku" class="btn btn-custom-blue">Tambah Buku</button><br/>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode Lokasi</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Jenis Barang</th>
+                    <th>Edisi</th>
+                    <th>Stok</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tabelBodyBahanAjar">
+            <!--Javascript DOM retrieve data.js-->
+            </tbody>
+        </table>
+    </div>
+    <!-- SELESAI TABEL INFORMASI STOK BA -->
+
+    <!-- MODAL DETAIL STOK BA -->
+    <div id="modalDetail" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+    <div style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px;">
+        <span id="closeModal" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+        <h3>Detail Buku</h3>
+        <hr>
+        <div style="display: flex; gap: 20px;">
+            <div style="flex: 1;">
+                <img id="modalCover" src="" alt="Cover Buku" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+            <div style="flex: 2;">
+                <p><strong>Nama:</strong> <span id="modalNama"></span></p>
+                <p><strong>Kode Barang:</strong> <span id="modalKodeBarang"></span></p>
+                <p><strong>Kode Lokasi:</strong> <span id="modalKodeLokasi"></span></p>
+                <p><strong>Jenis:</strong> <span id="modalJenis"></span></p>
+                <p><strong>Edisi:</strong> <span id="modalEdisi"></span></p>
+                <p><strong>Stok:</strong> <span id="modalStok"></span></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- SELESAI MODAL STOK BA -->
+
+    <!-- MODAL TAMBAH BUKU -->
+    <div id="modalTambah" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+    <div style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px;">
+        <span id="closeModalTambah" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+        <h3>Tambah Buku Baru</h3>
+        <hr>
+        <form id="formTambahBuku">
+            <div class="mb-3">
+                <label for="inputKodeLokasi" class="form-label">Kode Lokasi</label>
+                <input type="text" class="form-control" id="inputKodeLokasi" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputKodeBarang" class="form-label">Kode Barang</label>
+                <input type="text" class="form-control" id="inputKodeBarang" required> </div>
+            <div class="mb-3">
+                <label for="inputNamaBarang" class="form-label">Nama Barang</label>
+                <input type="text" class="form-control" id="inputNamaBarang" required> </div>
+            <div class="mb-3">
+                <label for="inputJenisBarang" class="form-label">Jenis Barang</label>
+                <input type="text" class="form-control" id="inputJenisBarang" required> </div>
+            <div class="mb-3">
+                <label for="inputEdisi" class="form-label">Edisi</label>
+                <input type="text" class="form-control" id="inputEdisi" required> </div>
+            <div class="mb-3">
+                <label for="inputStok" class="form-label">Stok</label>
+                <input type="number" class="form-control" id="inputStok" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Tambah Buku</button>
+        </form>
+    </div>
+    </div>
+    <!-- SELESAI MODAL TAMBAH BUKU -->
+
+    <!-- LETAK FILE JS -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <!-- BATAS FILE JS -->
+</body>
+</html>

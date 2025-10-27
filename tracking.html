@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman Bahan Ajar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-text" href="dashboard.html"><img src="assets/logo-ut.png" style="width: 48px;">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="stok.html">Informasi Bahan Ajar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Tracking Pengiriman</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLaporan" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Laporan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLaporan">
+                            <li><a class="dropdown-item" href="#">Monitoring Progres DO Bahan Ajar</a></li>
+                            <li><a class="dropdown-item" href="#">Rekap Bahan Ajar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Histori Transaksi Bahan Ajar</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-custom-blue" id="logoutButton">Keluar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container container-main">
+        <h3 class="text-center my-4">Tracking Pengiriman Bahan Ajar</h3>
+
+        <div class="card card-tracking mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Masukkan Nomor DO" aria-label="Masukkan Nomor DO" id="doNumberInput" value="2023001234">
+                    <button class="btn btn-primary" type="button" id="trackButton">Lacak</button>
+                </div>
+                <small class="form-text text-muted mb-3 d-block">Masukkan: 2023005678, 2023001234</small>
+
+                <div id="trackingResult" style="display: none;">
+                    <p>Nomor DO: <strong id="displayDoNumber"></strong> (Status: <span class="tracking-status" id="displayStatus"></span>)</p>
+                    <p>Penerima: <strong id="displayPenerima"></strong> | Tanggal Kirim: <span id="displayTanggalKirim"></span></p>
+
+                    <h6 class="mt-4">Detail Perjalanan:</h6>
+                    <div id="detailPerjalananList" class="tracking-details-list">
+                        </div>
+                </div>
+
+                <div id="noDataMessage" class="alert alert-warning mt-3" style="display: none;">
+                    Data tracking tidak ditemukan untuk Nomor DO ini.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LETAK FILE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/dataTracking.js"></script>
+    <script src="js/script.js"></script>
+    <!-- BATAS FILE JS -->
+</body>
+</html>
